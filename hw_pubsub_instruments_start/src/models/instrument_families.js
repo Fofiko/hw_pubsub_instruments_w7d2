@@ -39,14 +39,11 @@ InstrumentFamilies.prototype.bindEvents = function () {
   });
 };
 
-InstrumentFamilies.prototype.showInstrumentDetail = function (instrumentIndex) {
-  const selectedInstrument = this.instrumentFamilies[instrumentIndex];
-  // console.log("selectedInstrument:", selectedInstrument);
-  PubSub.publish('InstrumentFamilies:selected-instrument-ready', selectedInstrument)
+InstrumentFamilies.prototype.showInstrumentDetail = function (index) {
+  const selectedFamily = this.instrumentFamilies[index];
+  // console.log("selectedFamily:", selectedFamily);
+  PubSub.publish('InstrumentFamilies:selected-family-ready', selectedFamily)
 };
-
-
-
 
 
 

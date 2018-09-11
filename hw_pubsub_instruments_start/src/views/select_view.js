@@ -16,10 +16,10 @@ SelectView.prototype.bindEvents = function(){
   });
 };
 
-SelectView.prototype.populate = function(instrumentsData){
-  instrumentsData.forEach((instrument, index) => {
+SelectView.prototype.populate = function(instrumentFamilies){
+  instrumentFamilies.forEach((family, index) => {
     const option = document.createElement('option');
-    option.textContent = instrument.name;
+    option.textContent = family.name;
     option.value = index;
     this.element.appendChild(option);
   });

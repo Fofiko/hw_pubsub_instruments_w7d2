@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const instrumentFamiliesDropdown = new SelectView(selectElement);
   instrumentFamiliesDropdown.bindEvents();
 
+  const infoDiv = document.querySelector('div#animal-info')
+  const instrumentInfoDisplay = new InstrumentInfoView(infoDiv);
+  instrumentInfoDisplay.bindEvents();
 
   const instrumentsDataSource = new InstrumentFamilies();
   instrumentsDataSource.bindEvents();
