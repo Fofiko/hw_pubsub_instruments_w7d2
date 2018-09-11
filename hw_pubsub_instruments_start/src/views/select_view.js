@@ -9,9 +9,12 @@ SelectView.prototype.bindEvents = function(){
     const allInstruments = evt.detail;
     this.populate(allInstruments);
   });
+
+  this.element.addEventListener('change', (evt) => {
+    const selectedIndex = evt.target.value;
+    PubSub.publish('SelectView:change', selectedIndex);
+  });
 };
-
-
 
 SelectView.prototype.populate = function(instrumentsData){
   instrumentsData.forEach((instrument, index) => {
@@ -19,8 +22,8 @@ SelectView.prototype.populate = function(instrumentsData){
     option.textContent = instrument.name;
     option.value = index;
     this.element.appendChild(option);
-  })
-}
+  });
+};
 
 
 
