@@ -6,16 +6,17 @@ const InstrumentInfoView = function(container) {
 
 InstrumentInfoView.prototype.bindEvents = function(){
   PubSub.subscribe('InstrumentFamilies:selected-family-ready', (evt) => {
-    const instrument = evt.detail;
-    this.render(instrument);
+    const familyInfo = evt.detail;
+    // console.log("familyInfo:", familyInfo);
+    this.render(familyInfo);
   });
 };
 
 InstrumentInfoView.prototype.render = function(family){
+  this.container.innerHTML = '';
   const infoParagraph = document.createElement('p');
   infoParagraph.textContent = `${family.name}\r\n ${family.description}\r\n Instruments include: ${family.instruments}.`;
-  // console.log(family.instruments);
-  this.container.innerHTML = '';
+  // console.log("infoParagraph:", infoParagraph);
   this.container.appendChild(infoParagraph);
 };
 

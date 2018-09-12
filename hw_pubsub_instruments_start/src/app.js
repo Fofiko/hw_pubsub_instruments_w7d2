@@ -5,14 +5,18 @@ const InstrumentInfoView = require('./views/instrument_info_view.js');
 
 document.addEventListener('DOMContentLoaded', function() {
   // console.log('JavaScript Loaded');
-  const selectElement = document.querySelector('select#instrument-families-dropdown');
-  const instrumentFamiliesDropdown = new SelectView(selectElement);
-  instrumentFamiliesDropdown.bindEvents();
 
-  const infoDiv = document.querySelector('div#animal-info')
+  //select view
+  const selectElement = document.querySelector('#instrument-families');
+  const selectView = new SelectView(selectElement);
+  selectView.bindEvents();
+
+  // //instrument family info view
+  const infoDiv = document.querySelector('div#instrument-info')
   const instrumentInfoDisplay = new InstrumentInfoView(infoDiv);
   instrumentInfoDisplay.bindEvents();
 
+  //instrument families
   const instrumentsDataSource = new InstrumentFamilies();
   instrumentsDataSource.bindEvents();
 });
